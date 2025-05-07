@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Inventory Management</h2>
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+
+    <p>
+        {{ form.name.label }}<br>
+        {{ form.name(size=40) }}
+    </p>
+
+    <p>
+        {{ form.price.label }}<br>
+        {{ form.price(step="0.01") }}
+    </p>
+
+    <p>
+        {{ form.quantity.label }}<br>
+        {{ form.quantity(min=0) }}
+    </p>
+
+    <p>{{ form.submit(class_="button") }}</p>
+</form>
+
+<hr>
+
+<h3>Current Inventory</h3>
+<table border="1" cellpadding="6" cellspacing="0">
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+    </tr>
+    {% for bracelet in bracelets %}
+    <tr>
+        <td>{{ bracelet.name }}</td>
+        <td>${{ "%.2f"|format(bracelet.price) }}</td>
+        <td>{{ bracelet.quantity }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

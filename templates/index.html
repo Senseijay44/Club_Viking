@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Bracelet Order Form</h2>
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+
+    <p>
+        {{ form.buyer_name.label }}<br>
+        {{ form.buyer_name(size=40) }}
+    </p>
+
+    <p>
+        {{ form.student_name.label }}<br>
+        {{ form.student_name(size=40) }}
+    </p>
+    
+    <p>
+        {{ form.grade.label }}<br>
+        {{ form.grade() }}
+    </p>
+    
+
+    <p>
+        {{ form.bracelet_id.label }}<br>
+        {{ form.bracelet_id() }}
+    </p>
+
+    <p>
+        {{ form.quantity.label }}<br>
+        {{ form.quantity(min=1) }}
+    </p>
+
+    <p>
+        {{ form.payment_note.label }}<br>
+        {{ form.payment_note(rows=3, cols=40) }}
+    </p>
+
+    <p>{{ form.submit(class_="button") }}</p>
+</form>
+{% endblock %}

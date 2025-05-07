@@ -1,0 +1,15 @@
+# 🛡️ SECURITY
+.env
+__pycache__/
+*.pyc
+
+# 🔌 Venv & Python tooling
+venv/
+.vscode/
+.idea/
+
+# 🧙‍♂️ Your dev tooling folder
+viking-dojo/
+
+# 💾 DB (optional if you want to recreate it on deploy)
+data/
